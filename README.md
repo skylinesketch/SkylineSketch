@@ -6,7 +6,7 @@ Skyline queries are essential and common in mining data with multi-dimension att
 
 ## About the source code
 
-* `dataset`：contains the source code for generating synthetic datasets and our generated datasets that are used in the evaluations.
+* `dataset`：contains the source code for generating synthetic datasets that are used in the evaluations.
 * `src`: contians the source code for the implementation of SkylineSketch and the strawman solution.
 
 ## About the synthetic datasets
@@ -15,62 +15,55 @@ Please refer to the README in `dataset`.
 
 ## How to run evaluations
 
-* change directory to `src` and compile the source code
+* change directory to `src` and compile the source code.
 
   ```bash
   cd src; make
   ```
 
-* In order to run evaluations with the provided datasets, we provide scripts to automatically run the evaluations and print the results in the standard output.
+* In order to run evaluations, first generate synthetic datasets according to `dataset/README.md`
 
   * Effects of potential zone bucket size $\theta$​ (Figure 3):
 
     ```bash
-    ./bucket_size_expr.sh 4
-    ./bucket_size_expr.sh 8
-    ./bucket_size_expr.sh 10
-    ./bucket_size_expr.sh 12
+    ./bucket_size_expr {potential bucket size} {attribute_num} {dataset_file}
     ```
-
+    
   * Effects of representative bucket size $\lambda$ (Figure 4):
-
+  
     ```bash
-    ./global_size_expr.sh 8
-    ./global_size_expr.sh 12
-    ./global_size_expr.sh 16
-    ./global_size_expr.sh 20
+    ./global_size_expr {representative bucket size} {attribute_num} {dataset_file}
     ```
-
+    
   * Experiments on small memory (Figure 5):
-
+  
     ```bash
-    ./performance.sh 5
+    ./performance 5 {attribute_num} {dataset_file}
     ```
 
   * Experiments on median memory (Figure 6):
 
     ```shell
-    ./performance.sh 10
+    ./performance 10 {attribute_num} {dataset_file}
     ```
 
   * Experiments on large memory (Figure 7):
 
     ```bash
-    ./performance.sh 20
+    ./performance 20 {attribute_num} {dataset_file}
     ```
 
   * Experiments on the co-related dataset (Figure 8):
 
     ```shell
-    ./cor.sh 10
+    ./performance 10 {attribute_num} {cor_dataset_file}
     ```
 
   * Experiments on the anti-related dataset (Figure 9):
 
     ```shell
-    ./anti.sh 10
+    ./performance 10 {attribute_num} {anti_dataset_file}
     ```
 
     
-
 

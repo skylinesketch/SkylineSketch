@@ -4,13 +4,8 @@
 
 * `c`: contains the source C++ codes for generating anti-related, co-related distributions.
 * `python`: contains the source python codes for generating synthetic datasets.
-* `expr`: contains the synthetic datasets that are used in the evaluations.
 
 ## How to generate datasets
-
-We have provided all datasets that we used in the evaluations in `expr`.
-
-Next, we describe how we generate synthetic datasets.
 
 * First, generate co-related and anti-related distributions
 
